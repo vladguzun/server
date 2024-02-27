@@ -1,5 +1,5 @@
 const { Server } = require('socket.io');
-const http = require('http');
+const http = require('https');
 
 const server = http.createServer();
 const io = new Server(server, {
