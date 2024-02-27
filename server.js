@@ -3,7 +3,7 @@ const http = require('http');
 
 const server = http.createServer();
 const io = new Server(server, {
-    cors: "http://localhost:3000",
+    cors: "https://client-seven-gilt.vercel.app/",
     methods: ["POST", "GET"]
 });
 
