@@ -4,8 +4,7 @@ const http = require('http');
 const server = http.createServer();
 const io = new Server(server, {
   cors: {
-    origin: "https://client-dwoosydgr-vlad2002jdhjdch.vercel.app/",
-    methods: ["GET", "POST"]
+    origin: '*',
   }
 });
 
