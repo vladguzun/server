@@ -30,6 +30,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(443, () => {
-    console.log("on port 443"); 
+server.listen(3001, () => {
+    console.log("on port 3001"); 
 });
