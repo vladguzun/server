@@ -21,7 +21,6 @@ io.on('connection', (socket) => {
     socket.on('notification', (senderSocketId) => {
         console.log('Received notification from:', senderSocketId);
 
-        // Send a notification to all connected clients except the sender
         socket.broadcast.emit("notification", senderSocketId);
     });
 
@@ -31,6 +30,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen("https://server-3-gl8x.onrender.com", () => {//inseat of 3001 i need to put this? https://server-3-gl8x.onrender.com
-    console.log('https://server-3-gl8x.onrender.com'); 
+server.listen(443, () => {
+    console.log("on port 443"); 
 });
