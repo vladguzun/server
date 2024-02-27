@@ -12,7 +12,7 @@ const connectedClients = new Set();
 
 
 
-io.on('connection', (socket:any) => {
+io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
     connectedClients.add(socket);
     const clientsArray:any[] = [...connectedClients];
@@ -23,7 +23,7 @@ io.on('connection', (socket:any) => {
 
 
 
-    socket.on('notification', (senderSocketId:any) => {
+    socket.on('notification', (senderSocketId) => {
         console.log('Received notification from:', senderSocketId);
 
         // Send a notification to all connected clients except the sender
