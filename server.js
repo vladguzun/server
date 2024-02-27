@@ -2,17 +2,11 @@ const { Server } = require('socket.io');
 const http = require('http');
 
 const server = http.createServer();
-const io = new Server(server);
-
-io.use((socket, next) => {
-  // Allow requests only from your Vercel client URL
-  const allowedOrigins = ["https://client-seven-gilt.vercel.app"];
-  const origin = socket.request.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    socket.request.origin = origin;
-    return next();
+const io = new Server(server, {
+  cors: {
+    origin: "https://client-dwoosydgr-vlad2002jdhjdch.vercel.app/",
+    methods: ["GET", "POST"]
   }
-  return next(new Error('Origin not allowed by CORS'));
 });
 
 const connectedClients = new Set();
