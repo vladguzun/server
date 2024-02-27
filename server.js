@@ -2,15 +2,20 @@ const { Server } = require('socket.io');
 const http = require('http');
 
 const server = http.createServer();
-const io = new Server(server, {
-    cors: "https://client-seven-gilt.vercel.app/",
-    methods: ["POST", "GET"]
+const io = new Server(server);
+
+io.use((socket, next) => {
+  // Allow requests only from your Vercel client URL
+  const allowedOrigins = ["https://client-seven-gilt.vercel.app"];
+  const origin = socket.request.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    socket.request.origin = origin;
+    return next();
+  }
+  return next(new Error('Origin not allowed by CORS'));
 });
 
 const connectedClients = new Set();
-
-
-
 
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
@@ -18,10 +23,6 @@ io.on('connection', (socket) => {
     const clientsArray = [...connectedClients];
     console.log('_____');
     clientsArray.map(client => console.log(client.id));
-
-    
-
-
 
     socket.on('notification', (senderSocketId) => {
         console.log('Received notification from:', senderSocketId);
