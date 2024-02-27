@@ -4,7 +4,7 @@ const http = require('http');
 const server = http.createServer();
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "https://client-seven-gilt.vercel.app",
     methods: ["GET", "POST"]
   }
 });
