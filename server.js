@@ -15,7 +15,7 @@ const connectedClients = new Set();
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
     connectedClients.add(socket);
-    const clientsArray:any[] = [...connectedClients];
+    const clientsArray = [...connectedClients];
     console.log('_____');
     clientsArray.map(client => console.log(client.id));
 
