@@ -31,6 +31,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(3001, () => {
-    console.log('Server listening on port 3001');
+server.listen("https://server-3-gl8x.onrender.com", () => {//inseat of 3001 i need to put this? https://server-3-gl8x.onrender.com
+    console.log('https://server-3-gl8x.onrender.com'); 
 });
